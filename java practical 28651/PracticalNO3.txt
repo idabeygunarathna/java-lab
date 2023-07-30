@@ -1,0 +1,77 @@
+01).
+
+package com.mycompany.encapstest;
+
+public class EncapsulationDemo 
+{
+ private String empName; 
+ private int age;
+ private double bsalary;
+ private double bonus;
+
+    public EncapsulationDemo(String empName, int age, double bsalary, double bonus)
+    {
+        this.empName=empName;
+        this.age=age;
+        this.bsalary=bsalary;
+    }
+    public void setEmpName(String newValue)
+    {
+        empName = newValue;
+    }
+    public String getEmpName()
+    {
+        return empName;
+    }
+    public void setage(int age)
+    {
+        this.age=age;
+    }
+    public int getage()
+    {
+        return age;
+    }
+    public void setbsalary(double bsalary)
+    {
+        this.bsalary=bsalary;
+    }
+    public double getbsalary()
+    {
+        return bsalary;
+    }
+    public void setbonus(double bonus)
+    {
+        this.bonus=bonus;
+    }
+    public double getbonus()
+    {
+        return bonus;
+    }
+
+    public double CalculateBonus(double CalculateBonus)
+    {
+         return bsalary + bonus;
+    }
+}
+
+
+
+02).
+
+package com.mycompany.encapstest;
+
+public class EncapsTest 
+{
+
+    public static void main(String[] args) 
+    {
+        EncapsulationDemo e1=new EncapsulationDemo("Sunil", 25, 50000.00, 10000.00);
+               
+        
+        System.out.println("Employee Name is: " +e1.getEmpName());
+        System.out.println("Employee Age is: " +e1.getage());
+        System.out.println("Basic Salary is: " +e1.getbsalary());
+        System.out.println("Bonus Amount is: " +e1.getbonus());
+        
+    }
+}

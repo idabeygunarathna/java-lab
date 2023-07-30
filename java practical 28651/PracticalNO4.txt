@@ -1,0 +1,229 @@
+01).
+
+// Employee class
+class Employee {
+    private int empID;
+    private String empName;
+    private String empDesignation;
+
+    public int getEmpID() {
+        return empID;
+    }
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public String getEmpDesignation() {
+        return empDesignation;
+    }
+
+    
+    public void setEmpID(int empID) {
+        this.empID = empID;
+    }
+
+    public void setEmpName(String empName) {
+        this.empName = empName;
+    }
+
+    public void setEmpDesignation(String empDesignation) {
+        this.empDesignation = empDesignation;
+    }
+}
+
+
+//main class
+
+public class TestEmployee {
+    public static void main(String[] args) {
+        // Create two Employee objects
+        Employee mrBogdan = new Employee();
+        Employee msBird = new Employee();
+
+        // Set values for Mr. Bogdan
+        mrBogdan.setEmpID(101);
+        mrBogdan.setEmpName("Mr. Bogdan");
+        mrBogdan.setEmpDesignation("Software Engineer");
+
+        // Set values for Ms. Bird
+        msBird.setEmpID(102);
+        msBird.setEmpName("Ms. Bird");
+        msBird.setEmpDesignation("Graphic Designer");
+
+        // Print the details using getters
+        System.out.println("Mr. Bogdan Details:");
+        System.out.println("ID: " + mrBogdan.getEmpID());
+        System.out.println("Name: " + mrBogdan.getEmpName());
+        System.out.println("Designation: " + mrBogdan.getEmpDesignation());
+
+        System.out.println("\nMs. Bird Details:");
+        System.out.println("ID: " + msBird.getEmpID());
+        System.out.println("Name: " + msBird.getEmpName());
+        System.out.println("Designation: " + msBird.getEmpDesignation());
+    }
+}
+
+
+
+02).
+
+1. There are two classes, SuperB and SubC, each stored in separate files.
+
+2. Class SuperB has four methods and an instance variable x:
+
+	void setIt(int n): Sets the value of x to the given integer n.
+	void increase(): Increments the value of x by 1.
+	void triple(): Multiplies the value of x by 3.
+	int returnIt(): Returns the value of x.
+
+3. Class SubC extends SuperB, inheriting all its methods and variables. It also has a new method:
+	void triple(): Overrides the triple() method from the superclass. Instead of multiplying by 3, it adds 3 to the value of x.
+	void quadruple(): A new method, which multiplies the value of x by 4.
+
+4. The TestInheritance class contains the main() method:
+	It creates an object b of the superclass SuperB.
+	Sets the value of x to 2 using setIt(2).
+	Increments x by 1 using increase().
+	Multiplies x by 3 using triple().
+	Prints the final value of x using returnIt(). (Output: 9)
+	Then, it creates an object c of the subclass SubC.
+	Sets the value of x to 2 using setIt(2).
+	Increments x by 1 using increase().
+	The overridden triple() method is called, which adds 3 to x.
+
+	Prints the final value of x using returnIt(). (Output: 6)
+
+
+03).
+
+
+
+package com.mycompany.personobj;
+
+public class Person 
+{
+ private int ID;
+ private String name;
+ private String course;
+ 
+ public Person(int ID, String name, String course)
+ {
+     this.ID=ID;
+     this.name=name;
+     this.course=course;
+ }
+     public void setID(int ID)
+     {
+         this.ID=ID;
+     }
+     public int getID()
+     {
+         return ID;
+     }
+     public void setname(String name)
+     {
+         this.name=name;
+     }
+     public String getname()
+     {
+         return name;
+     }
+     
+ }
+
+package com.mycompany.personobj;
+
+public class Student extends Person
+{
+  private String course;  
+
+    public Student(int ID, String name, String course) 
+    {
+        super(ID, name);
+        this.course=course;
+    }
+    public void setcourse(String course)
+     {
+         this.course=course;
+     }
+     public String getcourse()
+     {
+         return course;
+     }
+     
+}
+
+package com.mycompany.personobj;
+
+public class Lecturer extends Person
+{
+    private String program;
+    public Lecturer(int ID, String name, String program)
+    {
+        super(ID, name);
+        this.program=program;    
+    }
+    public void setprogram(String program)
+     {
+         this.program=program;
+     }
+     public String getprogram()
+     {
+         return program;
+     }
+
+}
+
+package com.mycompany.personobj;
+
+public class Personobj 
+{
+
+    public static void main(String[] args) 
+    {
+        Student s1=new Student(123, "inishi", "Networking");
+        System.out.println("ID is: " +s1.getID());
+        System.out.println("Name is: " +s1.getname());
+        System.out.println("Course is: " +s1.getcourse());
+        
+        Lecturer l1=new Lecturer(456, "ashan", "Computer Science");
+        System.out.println("ID is: " +l1.getID());
+        System.out.println("Name is: " +l1.getname());
+        System.out.println("Program is: " +l1.getprogram());
+    }
+}
+
+
+ 
+04).
+
+public class Animal {}
+
+public class Mammal extends Animal {}
+
+public class Reptile extends Animal {}
+
+public class Dog extends Mammal {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        Mammal m = new Mammal();
+        Dog d = new Dog();
+
+        System.out.println(m instanceof Animal);
+        System.out.println(d instanceof Mammal);
+        System.out.println(d instanceof Animal);
+    }
+}
+
+output :
+true
+true
+true
+
+
+
+output :
+
+
+

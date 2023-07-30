@@ -1,0 +1,180 @@
+Exercise 01 :
+
+01).
+
+//Declaring the variable with public static final.
+
+public interface MyFirstInterface 
+{
+    public static final int x = 10;
+
+    void display();
+}
+
+
+
+//Declaring the variable without public static final
+
+public interface MyFirstInterface 
+{
+    int x = 10;
+
+    void display();
+}
+
+
+both approaches achieve the same result. The difference between them is only syntactical, not functional. In practice, it's more common and recommended to omit the public static final keywords when defining constants within an interface to keep the code clean and concise.
+
+
+
+02).
+
+Declaring the abstract method with the abstract
+
+public interface MyFirstInterface 
+{
+    abstract void display();
+
+    int x = 10;
+}
+
+
+Declaring the abstract method without the abstract
+
+public interface MyFirstInterface 
+{
+    void display();
+
+    int x = 10;
+}
+
+
+Both of these approaches are functionally identical. Whether you use the abstract keyword or not, the method display() is still considered abstract. All methods within an interface are implicitly abstract by default, so explicitly using the abstract keyword becomes redundant.
+
+
+03).
+
+public class InterfaceImplemented implements MyFirstInterface 
+{
+
+    // Overriding the abstract method from MyFirstInterface
+    @Override
+    public void display() {
+        // Attempt to change the value of x
+        // This will result in a compilation error
+        x = 20; // This line will cause a compilation error
+        System.out.println("Value of x inside display(): " + x);
+    }
+
+    public static void main(String[] args) {
+        InterfaceImplemented obj = new InterfaceImplemented();
+        obj.display();
+    }
+}
+
+
+public class InterfaceImplemented implements MyFirstInterface
+{
+
+    // Overriding the abstract method from MyFirstInterface
+    @Override
+    public void display() {
+        // Avoid trying to change the value of x to avoid compilation error
+        System.out.println("Value of x inside display(): " + x);
+    }
+
+    public static void main(String[] args) {
+        InterfaceImplemented obj = new InterfaceImplemented();
+        obj.display();
+    }
+}
+
+
+
+printing the initial value of 'x', which is 10, as defined in the interface. The value of 'x' cannot be changed inside the 'display()' method due to its 'final' nature.
+
+
+
+Exercise 03 :
+
+
+1.The 'Undergraduate' class extends the 'Student' class, which is allowed since 'Student' is not marked as 'final'.
+2.In the 'Main' class, we create an instance of the 'Undergraduate' class named 'student'.
+3.We call the 'display()' method on the 'student' object.
+4.The 'display()' method is inherited from the 'Student' class and prints the value of the 'marks' variable, which is 100.
+
+So, the output of the code will be "Marks: 100".
+
+
+Exercise 04 :
+
+abstract class Shape 
+{
+    // Abstract method to calculate the area of the shape
+    abstract double calculateArea();
+
+    // Non-abstract method to display the calculated area
+    void display() {
+        double area = calculateArea();
+        System.out.println("Area: " + area);
+    }
+}
+
+class Circle extends Shape 
+{
+    private double radius;
+
+    // Constructor to initialize the radius of the circle
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Implementing the calculateArea method for Circle
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape 
+{
+    private double length;
+    private double width;
+
+    // Constructor to initialize the length and width of the rectangle
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Implementing the calculateArea method for Rectangle
+    @Override
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+public class Main 
+{
+    public static void main(String[] args) {
+        // Creating a Circle and displaying its area
+        Circle circle = new Circle(5.0);
+        circle.display();
+
+        // Creating a Rectangle and displaying its area
+        Rectangle rectangle = new Rectangle(4.0, 6.0);
+        rectangle.display();
+    }
+}
+
+
+output :
+
+Area: 78.53981633974483
+Area: 24.0
+
+
+
+
+
+
